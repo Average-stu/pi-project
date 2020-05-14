@@ -1,0 +1,27 @@
+#!/bin/bash
+printf "THIS SCRIPT ONLY RUN IN ROOT"
+apt-get update
+apt-get upgrade
+apt-get install fliglet
+figlet -f big Welcome 
+banner()
+{
+  echo "+------------------------------------------+"
+  printf "| %-40s |\n" "`date`"
+  echo "|                                          |"
+  printf "|`tput bold` %-40s `tput sgr0`|\n" "$@"
+  echo "+------------------------------------------+"
+  echo "YOUR PI-CAST IS INSTALLING PLEASE WAIT"
+}
+git clone https://github.com/HaarigerHarald/omxiv
+
+apt-get install libjpeg8-dev libpng12-dev
+
+cd omxiv
+make ilclient
+make
+sudo make install
+
+printf "YOUR HOSTNAME IS "
+hostname -I
+
